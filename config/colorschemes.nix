@@ -18,6 +18,7 @@
       # alpha = true;
       cmp = true;
       # dashboard = true;
+      fidget = true;
       # flash = true;
       # gitsigns = true;
       # harpoon = true;

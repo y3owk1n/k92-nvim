@@ -1,18 +1,25 @@
 {
   # Import all your configuration modules here
   imports = [
-    ./conform.nix
-    ./colorschemes.nix
-    ./cmp.nix
     ./clipboard.nix
+    ./conform.nix
+    ./cmp.nix
+    ./colorschemes.nix
+    ./conform.nix
     ./extra-plugins.nix
+    ./fidget.nix
+    ./gitsigns.nix
     ./globals.nix
     ./keymaps.nix
     ./lint.nix
-    ./luasnip.nix
     ./lsp.nix
+    ./luasnip.nix
     ./nvim-cmp.nix
-    ./tmux-navigator.nix
     ./options.nix
+    ./tmux-navigator.nix
+    ./treesitter-context.nix
+    ./treesitter-textobjects.nix
+    ./treesitter.nix
+    ./ts-context-commentstring.nix
   ];
 }
