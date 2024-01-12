@@ -20,7 +20,7 @@
       # dashboard = true;
       fidget = true;
       # flash = true;
-      # gitsigns = true;
+      gitsigns = true;
       # harpoon = true;
       # headlines = true;
       # illuminate = true;
@@ -42,7 +42,7 @@
       # custom_bg = "lualine";
       # };
       # neotest = true;
-      # neotree = true;
+      neotree = true;
       # noice = true;
       # notify = true;
       # semantic_tokens = true;

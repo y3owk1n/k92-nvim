@@ -26,5 +26,6 @@
     ./treesitter-textobjects.nix
     ./treesitter.nix
     ./ts-context-commentstring.nix
+    ./which-key.nix
   ];
 }
