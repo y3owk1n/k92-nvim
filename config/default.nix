@@ -12,8 +12,10 @@
     ./globals.nix
     ./keymaps.nix
     ./lint.nix
+    ./lualine.nix
     ./lsp.nix
     ./luasnip.nix
+    ./neotree.nix
     ./nvim-cmp.nix
     ./options.nix
     ./tmux-navigator.nix
