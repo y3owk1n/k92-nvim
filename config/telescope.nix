@@ -20,6 +20,7 @@
         '';
       };
     };
+    extensions = { fzf-native.enable = true; };
   };
   keymaps = [
     {
@@ -92,6 +93,13 @@
       key = "<leader>sx";
       action = "<cmd>lua require('telescope.builtin').resume()<CR>";
       options.desc = "Resume Last Picker";
+    }
+    {
+      mode = "n";
+      key = "<leader>sp";
+      action =
+        "<cmd>lua require('telescope').extensions.yank_history.yank_history({})<CR>";
+      options.desc = "Open Yank History";
     }
   ];
 }

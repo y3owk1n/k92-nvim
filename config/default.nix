@@ -14,20 +14,28 @@
     ./fidget.nix
     ./gitsigns.nix
     ./globals.nix
+    ./harpoon.nix
+    ./inc-rename.nix
     ./keymaps.nix
     ./lint.nix
     ./lsp.nix
     ./lualine.nix
     ./luasnip.nix
+    ./neogen.nix
     ./neotree.nix
     ./nvim-cmp.nix
     ./options.nix
+    ./surround.nix
     ./telescope.nix
     ./tmux-navigator.nix
     ./treesitter-context.nix
     ./treesitter-textobjects.nix
     ./treesitter.nix
+    ./trouble.nix
+    ./ts-autotag.nix
     ./ts-context-commentstring.nix
+    ./undotree.nix
     ./which-key.nix
+    ./yanky.nix
   ];
 }
