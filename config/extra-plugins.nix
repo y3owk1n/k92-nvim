@@ -3,5 +3,6 @@
     codeium-vim
     friendly-snippets
     sqlite-lua
+    vim-startuptime
   ];
 }
