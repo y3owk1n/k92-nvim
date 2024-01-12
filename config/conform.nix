@@ -8,6 +8,7 @@
     formattersByFt = {
       lua = [ "stylua" ];
       sh = [ "beatuysh" ];
+      fish = [ "fish_indent" ];
       # Use a sub-list to run only the first available formatter
       javascript = [[ "biome" "prettierd" ]];
       javascriptreact = [[ "biome" "prettierd" ]];
