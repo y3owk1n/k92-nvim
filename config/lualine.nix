@@ -1,46 +1,91 @@
 {
   plugins.lualine = {
     enable = true;
-
     globalstatus = true;
-
-    # +-------------------------------------------------+
-    # | A | B | C                             X | Y | Z |
-    # +-------------------------------------------------+
     sections = {
       lualine_a = [ "mode" ];
       lualine_b = [ "branch" ];
-      lualine_c = [ "filename" "diff" ];
+      lualine_c = [
+        "filename"
+        {
+          name = "diagnostics";
+          extraConfig = {
+            separator = "";
+            symbols = {
+              error = " ";
+              warn = " ";
+              info = " ";
+              hint = " ";
+            };
+          };
+        }
+        {
+          name = "filetype";
+          extraConfig = {
+            icon_only = true;
+            separator = "";
+            padding = {
+              left = 1;
+              right = 0;
+            };
+          };
+        }
+      ];
 
       lualine_x = [
-        "diagnostics"
-
-        # Show active language server
+        {
+          name = "diff";
+          extraConfig = {
+            symbols = {
+              added = " ";
+              modified = " ";
+              removed = " ";
+            };
+            source = ''
+              function()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                  return {
+                    added = gitsigns.added,
+                    modified = gitsigns.changed,
+                    removed = gitsigns.removed,
+                  }
+                end
+              end
+            '';
+          };
+        }
         {
           name.__raw = ''
             function()
-                local msg = ""
-                local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                local clients = vim.lsp.get_active_clients()
-                if next(clients) == nil then
-                    return msg
-                end
-                for _, client in ipairs(clients) do
-                    local filetypes = client.config.filetypes
-                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                        return client.name
-                    end
-                end
-                return msg
+              return vim.api.nvim_call_function("codeium#GetStatusString", {})
             end
           '';
-          icon = " ";
-          color.fg = "#ffffff";
         }
-        "encoding"
-        "fileformat"
-        "filetype"
       ];
+
+      lualine_y = [{
+        name = "progress";
+        extraConfig = {
+          separator = " ";
+          padding = {
+            left = 0;
+            right = 1;
+          };
+        };
+      }];
+
+      lualine_z = [{
+        name = "location";
+        extraConfig = {
+          padding = {
+            left = 1;
+            right = 0;
+          };
+        };
+      }];
     };
+
+    extensions = [ "neo-tree" ];
   };
 }
