@@ -20,6 +20,7 @@
     ./neotree.nix
     ./nvim-cmp.nix
     ./options.nix
+    ./telescope.nix
     ./tmux-navigator.nix
     ./treesitter-context.nix
     ./treesitter-textobjects.nix
