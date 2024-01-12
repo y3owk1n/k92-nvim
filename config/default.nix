@@ -1,6 +1,8 @@
 {
   # Import all your configuration modules here
   imports = [
+    ./auto-cmd.nix
+    ./auto-groups.nix
     ./clipboard.nix
     ./conform.nix
     ./cmp.nix
