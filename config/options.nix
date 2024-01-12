@@ -15,7 +15,7 @@
       grepprg = "rg --vimgrep";
       ignorecase = true;
       laststatus = 3;
-      list = true;
+      list = false;
       mouse = "a";
       number = true;
       pumheight = 10;

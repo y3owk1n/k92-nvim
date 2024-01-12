@@ -1,17 +1,32 @@
-# Nixvim template
+# K92-nvim
 
-This template gives you a good starting point for configuring nixvim standalone.
+Neovim configuration build using [nixvim](https://github.com/nix-community/nixvim) with stripped off [LazyVim](https://www.lazyvim.org/) features that only matters to me.
 
-## Configuring
+## How to Run
 
-To start configuring, just add or modify the nix files in `./config`.
-If you add a new configuration file, remember to add it to the
-[`config/default.nix`](./config/default.nix) file
+You can run this directly from the command line with:
 
-## Testing your new configuration
-
-To test your configuration simply run the following command
-
+```shell
+nix run github:y3owk1n/k92-nvim
 ```
-nix run .
+
+You can also plug this into a flake to include it into a system configuration.
+
+```nix
+{
+  inputs = {
+    k92.url = "github:y3owk1n/k92-nvim";
+  };
+}
+```
+
+This input can then be used as an overlay to replace the default neovim.
+
+```nix
+{ k92-nvim, ... }:
+{
+    overlays = (final: prev: {
+      neovim = k92-nvim.packages.${prev.system}.default;
+    });
+}
 ```
