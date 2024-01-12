@@ -87,5 +87,11 @@
       action = "<cmd>lua require('telescope.builtin').marks()<CR>";
       options.desc = "Find Marks";
     }
+    {
+      mode = "n";
+      key = "<leader>sx";
+      action = "<cmd>lua require('telescope.builtin').resume()<CR>";
+      options.desc = "Resume Last Picker";
+    }
   ];
 }

@@ -6,16 +6,18 @@
     ./clipboard.nix
     ./conform.nix
     ./cmp.nix
+    ./codeium.nix
     ./colorschemes.nix
     ./conform.nix
+    ./extra-config-lua.nix
     ./extra-plugins.nix
     ./fidget.nix
     ./gitsigns.nix
     ./globals.nix
     ./keymaps.nix
     ./lint.nix
-    ./lualine.nix
     ./lsp.nix
+    ./lualine.nix
     ./luasnip.nix
     ./neotree.nix
     ./nvim-cmp.nix
