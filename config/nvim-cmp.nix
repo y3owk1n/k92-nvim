@@ -2,17 +2,18 @@
   plugins = {
     nvim-cmp = {
       enable = true;
-
       sources = [
         { name = "nvim_lsp"; }
         { name = "luasnip"; }
         { name = "path"; }
         { name = "buffer"; }
       ];
-
+      window = {
+        completion = { border = "rounded"; };
+        documentation = { border = "rounded"; };
+      };
       completion.completeopt = "menu,menuone,noinsert";
       preselect = "None";
-
       mapping = {
         "<C-b>" = "cmp.mapping.scroll_docs(-4)";
         "<C-f>" = "cmp.mapping.scroll_docs(4)";

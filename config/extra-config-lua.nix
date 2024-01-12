@@ -7,11 +7,39 @@
 
     vim.opt.completeopt = "menu,menuone,noselect"
     vim.opt.formatoptions:append({ "r" })
-    vim.opt.fillchars = { eob = " " }
+    vim.opt.fillchars = {
+        foldopen = "",
+        foldclose = "",
+        -- fold = "⸱",
+        fold = " ",
+        foldsep = " ",
+        diff = "╱",
+        eob = " ",
+    }
     vim.opt.iskeyword:append("-") -- consider string-string as whole words
 
     if vim.fn.has("nvim-0.8") == 1 then
       vim.opt.cmdheight = 0
     end
+
+    local border = {
+        {"🭽", "FloatBorder"},
+        {"▔", "FloatBorder"},
+        {"🭾", "FloatBorder"},
+        {"▕", "FloatBorder"},
+        {"🭿", "FloatBorder"},
+        {"▁", "FloatBorder"},
+        {"🭼", "FloatBorder"},
+        {"▏", "FloatBorder"},
+    }
+
+    -- To instead override globally
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or "rounded"
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
+
   '';
 }

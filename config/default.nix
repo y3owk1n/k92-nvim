@@ -8,6 +8,7 @@
     ./cmp.nix
     ./codeium.nix
     ./colorschemes.nix
+    ./comment-nvim.nix
     ./conform.nix
     ./extra-config-lua.nix
     ./extra-plugins.nix
