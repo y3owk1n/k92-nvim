@@ -2,6 +2,9 @@
 
 Neovim configuration build using [nixvim](https://github.com/nix-community/nixvim) with stripped off [LazyVim](https://www.lazyvim.org/) features that only matters to me.
 
+![Screenshot 2024-01-13 at 11 32 28 PM](https://github.com/y3owk1n/k92-nvim/assets/62775956/6022ee02-ab6b-40b3-b842-71cb635d4406)
+
+
 ## Plugins included
 
 - cmp
