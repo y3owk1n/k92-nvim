@@ -6,5 +6,6 @@
     eslint_d
     nixfmt
     nixpkgs-fmt
+    luajitPackages.luacheck
   ];
 }
