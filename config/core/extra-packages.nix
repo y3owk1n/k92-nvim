@@ -9,5 +9,6 @@
     stylua
     codespell
     beautysh
+    shellcheck
   ];
 }
