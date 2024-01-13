@@ -9,7 +9,7 @@
           end
         '';
       };
-      event = [ "InsertLeave" "BufWritePost" "BufWinEnter" ];
+      event = [ "InsertLeave" "BufWritePost" "BufEnter" ];
     };
     lintersByFt = {
       sh = [ "shellcheck" ];
