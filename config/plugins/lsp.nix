@@ -2,7 +2,16 @@
   plugins.lsp = {
     enable = true;
     servers = {
-      biome.enable = true;
+      biome = {
+        enable = true;
+        rootDir = ''
+          if fs.exists("biome.json") then
+              return fs.cwd()
+          else
+              return nil
+          end
+        '';
+      };
       eslint.enable = true;
       jsonls.enable = true;
       lua-ls.enable = true;
