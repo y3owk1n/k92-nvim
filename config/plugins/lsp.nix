@@ -2,15 +2,12 @@
   plugins.lsp = {
     enable = true;
     servers = {
-      # biome.enable = true;
-      # biome.extraOptions = { single_file_support = false; };
-      # biome.rootDir = ''
-      #   function(...)
-      #       return require("lspconfig.util").root_pattern("biome.json")(...)
-      #   end
-      # '';
-      # eslint.enable = true;
-      # eslint.extraOptions = { single_file_support = false; };
+      biome.enable = true;
+      biome.extraOptions = { single_file_support = false; };
+      eslint.enable = true;
+      eslint.extraOptions = {
+        settings = { workingDirectory = { mode = "auto"; }; };
+      };
       jsonls.enable = true;
       lua-ls.enable = true;
       marksman.enable = true;

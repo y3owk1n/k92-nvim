@@ -5,6 +5,29 @@
       timeoutMs = 500;
       lspFallback = true;
     };
+    formatters = {
+      biome = {
+        condition = {
+          __raw = ''
+            function(self, ctx)
+                function has_root(files)
+                    local found = vim.fs.find(files, { upward = true, path = ctx.dirname })[1]
+                    if found then
+                        return true
+                    else
+                        return false
+                    end
+                end
+                if has_root({"biome.json", "package.json", "node_modules", ".git"}) then
+                    return true
+                else
+                    return false
+                end
+            end
+          '';
+        };
+      };
+    };
     formattersByFt = {
       lua = [ "stylua" ];
       sh = [ "beatuysh" ];
@@ -26,4 +49,10 @@
       "_" = [ "trim_whitespace" ];
     };
   };
+  keymaps = [{
+    mode = "n";
+    key = "<leader>cf";
+    options = { desc = "Conform Info"; };
+    action = "<cmd>ConformInfo<CR>";
+  }];
 }
