@@ -1,6 +1,63 @@
-# K92-nvim
+# k92-nvim
 
 Neovim configuration build using [nixvim](https://github.com/nix-community/nixvim) with stripped off [LazyVim](https://www.lazyvim.org/) features that only matters to me.
+
+## Plugins included
+
+- cmp
+- codeium (vim version)
+- catppuccin
+- comment-nvim
+- conform
+- fidget
+- gitsigns
+- harpoon
+- inc-rename
+- lint
+- lsp
+- lualine
+- luasnip
+- neogen
+- neotree
+- nvim-cmp
+- surround
+- telescope
+- tmux-navigator
+- treesitter-context
+- treesitter-textobjects
+- treesitter
+- trouble
+- ts-autotag
+- ts-context-commentstring
+- undotree
+- which-key
+- yanky
+
+### This will also automatically install the following lsp servers
+
+- biome (auto detect biome.json or use prettierd for formatting)
+- eslint
+- jsonls
+- lua-ls
+- marksman
+- nil_ls
+- prismals
+- tailwindcss
+- tsserver
+- yamlls
+
+### This will also automatically install some linters and formatters
+
+- markdownlint-cli
+- yamllint
+- prettierd
+- nixfmt
+- nixpkgs-fmt
+- luajitPackages.luacheck
+- stylua
+- codespell
+- beautysh
+- shellcheck
 
 ## How to Run
 
@@ -28,5 +85,35 @@ This input can then be used as an overlay to replace the default neovim.
     overlays = (final: prev: {
       neovim = k92-nvim.packages.${prev.system}.default;
     });
+}
+```
+
+### The way that I am using this package
+
+```nix
+# flake.nix
+
+{
+  ...
+  inputs = {
+    ...other inputs (e.g. nixpkgs, home-manager, darwin, ...)
+
+    k92-nvim.url = "github:y3owk1n/k92-nvim"; <- import this flake
+  };
+
+  outputs = inputs@{ nixpkgs, home-manager, darwin, k92-nvim, ... }:
+  ...rest of outputs configuration
+}
+```
+
+I'm using this with darwin configuration.
+
+```nix
+# modules/darwin.nix
+
+{ pkgs, username, system, inputs, ... }: {
+  ...imports
+
+  environment.systemPackages = [ inputs.k92-nvim.packages.${system}.default ]; <- add it to system packages
 }
 ```
