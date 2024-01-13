@@ -18,7 +18,7 @@
                         return false
                     end
                 end
-                if has_root({"biome.json", "package.json", "node_modules", ".git"}) then
+                if has_root({"biome.json"}) then
                     return true
                 else
                     return false
@@ -50,7 +50,7 @@
   };
   keymaps = [{
     mode = "n";
-    key = "<leader>cf";
+    key = "<leader>cm";
     options = { desc = "Conform Info"; };
     action = "<cmd>ConformInfo<CR>";
   }];
