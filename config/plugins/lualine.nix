@@ -3,15 +3,24 @@
     enable = true;
     globalstatus = true;
     theme = "catppuccin";
+    sectionSeparators = {
+      left = "";
+      right = "";
+    };
+    componentSeparators = {
+      left = "";
+      right = "";
+    };
     sections = {
       lualine_a = [ "mode" ];
-      lualine_b = [ "branch" ];
+      lualine_b = [{
+        name = "filename";
+        extraConfig = { path = 4; };
+      }];
       lualine_c = [
-        "filename"
         {
           name = "diagnostics";
           extraConfig = {
-            separator = "";
             symbols = {
               error = " ";
               warn = " ";
@@ -22,18 +31,19 @@
         }
         {
           name = "filetype";
-          extraConfig = {
-            icon_only = true;
-            separator = "";
-            padding = {
-              left = 1;
-              right = 0;
-            };
-          };
+          extraConfig = { icon_only = true; };
+        }
+        {
+          name.__raw = ''
+            function()
+              return vim.api.nvim_call_function("codeium#GetStatusString", {})
+            end
+          '';
         }
       ];
 
       lualine_x = [
+        "branch"
         {
           name = "diff";
           extraConfig = {
@@ -56,19 +66,11 @@
             '';
           };
         }
-        {
-          name.__raw = ''
-            function()
-              return vim.api.nvim_call_function("codeium#GetStatusString", {})
-            end
-          '';
-        }
       ];
 
       lualine_y = [{
         name = "progress";
         extraConfig = {
-          separator = " ";
           padding = {
             left = 0;
             right = 1;
@@ -78,15 +80,15 @@
 
       lualine_z = [{
         name = "location";
-        extraConfig = {
-          padding = {
-            left = 1;
-            right = 0;
-          };
-        };
+        # extraConfig = {
+        #   padding = {
+        #     left = 0;
+        #     right = 0;
+        #   };
+        # };
       }];
     };
 
-    extensions = [ "neo-tree" ];
+    extensions = [ "neo-tree" "quickfix" "trouble" ];
   };
 }
