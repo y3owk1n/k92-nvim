@@ -7,5 +7,7 @@
     nixpkgs-fmt
     luajitPackages.luacheck
     stylua
+    codespell
+    beautysh
   ];
 }

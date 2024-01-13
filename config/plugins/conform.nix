@@ -30,7 +30,7 @@
     };
     formattersByFt = {
       lua = [ "stylua" ];
-      sh = [ "beatuysh" ];
+      sh = [ "beautysh" ];
       fish = [ "fish_indent" ];
       # Use a sub-list to run only the first available formatter
       javascript = [[ "biome" "prettierd" ]];
@@ -41,7 +41,6 @@
       jsonc = [[ "biome" "prettierd" ]];
       markdown = [ "markdownlint" ];
       nix = [ "nixfmt" ];
-      prisma = [ "prismaFmt" ];
       # Use the "*" filetype to run formatters on all filetypes.
       "*" = [ "codespell" ];
       # Use the "_" filetype to run formatters on filetypes that don't
