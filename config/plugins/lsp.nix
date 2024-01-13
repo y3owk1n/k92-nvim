@@ -2,7 +2,10 @@
   plugins.lsp = {
     enable = true;
     servers = {
-      biome.enable = true;
+      biome = {
+        enable = true;
+        installLanguageServer = false;
+      };
       eslint.enable = true;
       jsonls.enable = true;
       lua-ls.enable = true;
