@@ -18,6 +18,10 @@
     }
     vim.opt.iskeyword:append("-") -- consider string-string as whole words
 
+    if vim.fn.has("nvim-0.10") == 1 then
+        vim.opt.smoothscroll = true
+    end
+
     if vim.fn.has("nvim-0.8") == 1 then
       vim.opt.cmdheight = 0
     end
