@@ -7,6 +7,7 @@
     ./extra-packages.nix
     ./globals.nix
     ./keymaps.nix
+    ./lua-loader.nix
     ./options.nix
   ];
 }
