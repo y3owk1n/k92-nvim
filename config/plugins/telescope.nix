@@ -23,6 +23,7 @@
     extensions = { fzf-native.enable = true; };
   };
   keymaps = [
+    # ----------------------- Quick Access -----------------------
     {
       mode = "n";
       key = "<leader><space>";
@@ -30,6 +31,7 @@
         "<cmd>lua require('telescope.builtin').find_files({hidden = false})<CR>";
       options.desc = "Find Files";
     }
+    # ----------------------- Files -----------------------
     {
       mode = "n";
       key = "<leader>ff";
@@ -43,6 +45,13 @@
       action =
         "<cmd>lua require('telescope.builtin').find_files({hidden = true})<CR>";
       options.desc = "Find Files (Hidden)";
+    }
+    # ----------------------- Search -----------------------
+    {
+      mode = "n";
+      key = "<leader>sd";
+      action = "<cmd>lua require('telescope.builtin').diagnostics()<CR>";
+      options.desc = "Find Diagnostics";
     }
     {
       mode = "n";
@@ -66,12 +75,6 @@
     }
     {
       mode = "n";
-      key = "<leader>sd";
-      action = "<cmd>lua require('telescope.builtin').diagnostics()<CR>";
-      options.desc = "Find Diagnostics";
-    }
-    {
-      mode = "n";
       key = "<leader>sH";
       action = "<cmd>lua require('telescope.builtin').highlights()<CR>";
       options.desc = "Find Highlight Groups";
@@ -90,16 +93,52 @@
     }
     {
       mode = "n";
-      key = "<leader>sx";
+      key = "<leader>sp";
+      action =
+        "<cmd>lua require('telescope').extensions.yank_history.yank_history({})<CR>";
+      options.desc = "Open Yank History";
+    }
+    {
+      mode = "n";
+      key = "<leader>ss";
       action = "<cmd>lua require('telescope.builtin').resume()<CR>";
       options.desc = "Resume Last Picker";
     }
     {
       mode = "n";
-      key = "<leader>sp";
+      key = "<leader>sw";
       action =
-        "<cmd>lua require('telescope').extensions.yank_history.yank_history({})<CR>";
-      options.desc = "Open Yank History";
+        "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>";
+      options.desc = "Find Words in Buffer";
+    }
+    # ----------------------- Git -----------------------
+    {
+      mode = "n";
+      key = "<leader>gb";
+      action =
+        "<cmd>lua require('telescope.builtin').git_branches({ use_file_path = true })<CR>";
+      options.desc = "Git Branches";
+    }
+    {
+      mode = "n";
+      key = "<leader>gc";
+      action =
+        "<cmd>lua require('telescope.builtin').git_commits({ use_file_path = true })<CR>";
+      options.desc = "Git Commits (Repository)";
+    }
+    {
+      mode = "n";
+      key = "<leader>gC";
+      action =
+        "<cmd>lua require('telescope.builtin').git_bcommits({ use_file_path = true })<CR>";
+      options.desc = "Git Commits (Current File)";
+    }
+    {
+      mode = "n";
+      key = "<leader>gt";
+      action =
+        "<cmd>lua require('telescope.builtin').git_status({ use_file_path = true })<CR>";
+      options.desc = "Git Status";
     }
   ];
 }

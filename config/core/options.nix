@@ -8,6 +8,7 @@
       confirm = true;
       cursorline = true;
       expandtab = true;
+      fileencoding = "utf-8";
       hlsearch = false;
       incsearch = true;
       formatoptions = "jcroqlnt";
